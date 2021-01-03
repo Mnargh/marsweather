@@ -34,8 +34,38 @@ body {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   background-image: url('../external-src/Mars.jpg');
+  background-size: cover; // enlarges to size of container
   height: 100vh;
   overflow: hidden;
   color: var(--clr-light)
+}
+
+h1, h2, h3 { 
+  line-height: 1;
+}
+
+.main-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-light);
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bolds);
+  margin: 0;
+}
+
+.section-title--date {
+  font-size: var(--fs-x1);
+}
+
+.mars-current-weather {
+  background: rgba(0,0,0,0.7);
+  padding: 2em;
+  max-width: 1000px;
+  margin: 4em 0 0 4em;
 }
 
