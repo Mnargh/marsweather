@@ -31,11 +31,10 @@ function App() {
         </div>
         <div class="unit">
           <label for="cel">°C</label>
-          <input type="text" id="cel" name="unit" checked />
-          // When unit toggel is clicked, checkbox must swap
-          <button class="unit-toggle" />
+          <input type="radio" id="cel" name="unit" checked />
+          <button class="unit__toggle" />
           <label for="fah">°F</label>
-          <input type="text" id="fah" name="unit" />
+          <input type="radio" id="fah" name="unit" />
         </div>
       </main>
 
