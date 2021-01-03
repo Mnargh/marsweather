@@ -1,9 +1,9 @@
-import '../src/styling/main.scss'
+import './styling/main.scss';
 
 function App() {
   return (
-    <div className="App" >
-      <div class="mars-current-weather" >
+    <div className="App">
+      <main class="mars-current-weather" >
         <h1 class="main-title">Latest weather at Elysium Plantitia</h1>
         <div class="date">
           <h2 class="section-title section-title-date">Sol 377</h2>
@@ -37,7 +37,7 @@ function App() {
           <label for="fah">°F</label>
           <input type="text" id="fah" name="unit" />
         </div>
-      </div>
+      </main>
 
       <div class="previous-weather">
         <label for="weather-toggle" class='show-previous-weather-label'>
