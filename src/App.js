@@ -6,7 +6,7 @@ function App() {
       <main class="mars-current-weather" >
         <h1 class="main-title">Latest weather at Elysium Plantitia</h1>
         <div class="date">
-          <h2 class="section-title section-title-date">Sol 377</h2>
+          <h2 class="section-title section-title--date">Sol 377</h2>
           <p class="date__day">September 18</p>
         </div>
         <div class="temperature">
@@ -27,7 +27,7 @@ function App() {
           <p>Insight is taking daily weather measurements (temperature, wind, pressure) on the surface of Mars at Elysium Plantitia,
           a flat smooth crater near Mars' equator</p>
 
-          <p>This is only part of insights mission. Click here to find out more</p>
+          <p>This is only part of insights mission. <a href="https://mars.nasa.gov/insight/mission/overview">Click here</a> to find out more</p>
         </div>
         <div class="unit">
           <label for="cel">°C</label>

@@ -5,9 +5,11 @@
 }
 
 :root {
+  // globally available variables as are under the root component
   --fw-light: 300;
   --fw-normal: 400;
   --fw-semi: 500;
+  --fw-bold: 700; 
   --fs-h1: 1.5rem;
   --fs-h2: 2.25rem;
   --fs-body: 1rem;
@@ -44,17 +46,26 @@ h1, h2, h3 {
   line-height: 1;
 }
 
+a {
+  color: var(--clr-accent);
+
+  &:hover {
+    color: var(--clr-accent-dark)
+  }
+}
 .main-title {
   font-size: var(--fs-h1);
   font-weight: var(--fw-light);
   text-transform: uppercase;
   color: var(--clr-accent);
   letter-spacing: 2px;
+
+  grid-column: 1 / -1; // extends title from one side of grid to the other
 }
 
 .section-title {
   font-size: var(--fs-h1);
-  font-weight: var(--fw-bolds);
+  font-weight: var(--fw-bold);
   margin: 0;
 }
 
@@ -62,10 +73,67 @@ h1, h2, h3 {
   font-size: var(--fs-x1);
 }
 
+.reading {
+  font-size: var(--fs-h1);
+  margin: 0;
+  color: var(--clr-gray);
+}
+
 .mars-current-weather {
   background: rgba(0,0,0,0.7);
   padding: 2em;
   max-width: 1000px;
   margin: 4em 0 0 4em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // sets grid template for weather div
+  grid-gap: 2em; // adds spacing around gridlines,s
 }
 
+.date {
+  grid-column: 1 / 2; // start at line 1 and go to line 2 in grid
+
+  &__day {
+    font-size: var(--fs-h2);
+    margin: 0;
+    color: var(--clr-gray);
+    font-weight: var(--fw-light);
+  }
+}
+
+.temperature {
+  --border: solid .25em var(--clr-accent-dark); // var is local to .temp and its children, not available globally
+  grid-column: 2 / 3; // start line 2 to line 3
+  border-left: var(--border);
+  border-right: var(--border);
+  padding-left: 2em;
+}
+
+.wind {
+  grid-column: 3 / 4; //  start line 3 to line 4
+
+  &__direction {
+    --size: 6rem;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background-color: rgba(255,255,255,.5);
+    display: grid;
+    place-items: center; // centers triangle in the circle
+  }
+
+  &__arrow {
+    // update custom props in JS to update the arrow direction
+    --direction: 0deg;
+    --size: 1rem;
+    height: calc(var(--size) * 3);
+    width: var(--size);
+    background: var(--clr-accent-dark);
+    clip-path: polygon(50% 0, 0% 100%, 100% 100%); // changes polygon to triagle shape // can use generator for this
+    transform: translateY(-50%) rotate(var(--direction));
+    transform-origin: bottom center; // allows dial to rotate around centre of the circle
+  }
+}
+
+.unit-toggle {
+  grid-column: 3 / 4;
+}
