@@ -250,13 +250,32 @@ a {
   justify-content: space-between;
 }
 
+.previous-weather__title {
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.previous-day {
+  opacity: 0;
+  transition: opacity 350ms linear;
+}
+
 .show-weather.previous-weather {
     transform: translateY(0);
 
     .show-previous-weather span {
       display: block;
       transform: rotate(180deg);
+    }
 
+    .previous-day {
+      opacity: 1;
+    }
+
+    .previous-weather__title {
+      text-align: left;
+      transition: text-ali
     }
 }
+
 
