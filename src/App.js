@@ -38,11 +38,11 @@ function App() {
         </div>
       </main>
 
-      <div class="previous-weather">
-        <label for="weather-toggle" class='show-previous-weather-label'>
-          &#8593;
-        <span class="sr-only">Show previous weather</span>
-        </label>
+      <div class="previous-weather show-weather">
+        <button for="weather-toggle" class='show-previous-weather'>
+          <span> &#8593;</span>
+          <span class="sr-only">Show previous weather</span>
+        </button>
 
         <input type="checkbox" id="weather-toggle" class="show-previous-weather-toggle" />
 

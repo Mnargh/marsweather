@@ -209,11 +209,12 @@ a {
   bottom: 0;
   width: 100%;
   transform: translateY(60%);
+  transition: transform 350ms ease;
 }
 
-.show-previous-weather-label {
+.show-previous-weather {
   position: absolute;
-  background: lime;
+  background: var(--clr-light);
   left: 50%;
   width: 10rem;
   transform: translate(-50%, -100%);
@@ -223,9 +224,32 @@ a {
   clip-path: polygon(50% 0, 0 100%, 100% 100%);
   cursor: pointer;
   color: var(--clr-gray);
+  border: 0;
+  font-family: inherit;
+
+  &:hover,
+  &:focus {
+    color: var(--clr-dark);
+  }
+
+  span {
+    display: block;
+    transform: rotate(0);
+    transition: transform 200ms ease;
+  }
 }
 
 .previous-days {
   display: flex;
+}
+
+.show-weather.previous-weather {
+    transform: translateY(0);
+
+    .show-previous-weather span {
+      display: block;
+      transform: rotate(180deg);
+
+    }
 }
 
