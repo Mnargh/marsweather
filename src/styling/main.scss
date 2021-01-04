@@ -11,7 +11,8 @@
   --fw-semi: 500;
   --fw-bold: 700; 
   --fs-h1: 1.5rem;
-  --fs-h2: 2.25rem;
+  --fs-h2: 2rem;
+  --fs-h0: 1rem;
   --fs-body: 1rem;
   --fs-x1: 4.5rem;
   --clr-light: #FFF;
@@ -210,6 +211,8 @@ a {
   width: 100%;
   transform: translateY(60%);
   transition: transform 350ms ease;
+  padding: 3rem;
+  border: 0;
 }
 
 .show-previous-weather {
@@ -217,9 +220,9 @@ a {
   background: var(--clr-light);
   left: 50%;
   width: 10rem;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, calc(-100% - 2.9rem));
   text-align: center;
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h1);
   line-height: 1;
   clip-path: polygon(50% 0, 0 100%, 100% 100%);
   cursor: pointer;
@@ -230,17 +233,21 @@ a {
   &:hover,
   &:focus {
     color: var(--clr-dark);
+    outline: none;
   }
 
   span {
     display: block;
     transform: rotate(0);
     transition: transform 200ms ease;
+    font-size: var(--fs-h1);
+    line-height: 1.5;
   }
 }
 
 .previous-days {
   display: flex;
+  justify-content: space-between;
 }
 
 .show-weather.previous-weather {

@@ -21,4 +21,15 @@
   </div>
 </body>
 
+<script>
+  console.log('here 3')
+  const previousWeatherToggle = document.querySelector('.show-previous-weather');
+
+  const previousWeather = document.querySelector('.previous-weather');
+
+  previousWeatherToggle.addEventListener('click', () => {
+    previousWeather.classList.toggle('show-weather');
+  });
+</script>
+
 </html>
