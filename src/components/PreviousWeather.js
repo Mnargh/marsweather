@@ -9,12 +9,30 @@ const PreviousWeather = props => {
   const API_URL = `https://api.nasa.gov/insight_weather/?api_key=${NASA_API_KEY}&feedtype=json&ver=1.0`
 
   useEffect(() => {
-    console.log(NASA_API_KEY)
-    console.log(process.env)
     fetch(API_URL)
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        const {
+          sol_keys,
+          validity_checks,
+          ...solData // gets remaining data
+        } = data
+
+        const temp = Object.entries(solData).map(
+          ([sol, data]) => {
+
+            const pickedData = {
+              ...(sol ? { sol: sol } : { sol: null }),
+              ...(data.AT ? { maxTemp: data.AT.mx } : { maxTemp: null }),
+              ...(data.AT ? { minTemp: data.AT.mn } : { minTemp: null }),
+              ...(data.HWS ? { avWindSpeed: data.HWS.av } : { avWindSpeed: null }),
+              ...(data.WD.most_common ? { windDirectionDeg: data.WD.most_common.compass_degrees } : { windDirectionDeg: null }),
+              ...(data.WD.most_common ? { windDirectionCardinal: data.WD.most_common.compass_point } : { windDirectionCardinal: null }),
+              ...(data.First_UTC ? { date: new Date(data.First_UTC) } : { date: null }),
+            }
+            return pickedData;
+          }
+        )
       })
   }, [])
 
