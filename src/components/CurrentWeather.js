@@ -30,10 +30,10 @@ const CurrentWeather = props => {
         <p>This is only part of insights mission. <a href="https://mars.nasa.gov/insight/mission/overview">Click here</a> to find out more</p>
       </div>
       <div className="unit">
-        <label for="cel">°C</label>
+        <label >°C</label>
         <input type="radio" id="cel" name="unit" checked />
         <button className="unit__toggle" />
-        <label for="fah">°F</label>
+        <label >°F</label>
         <input type="radio" id="fah" name="unit" />
       </div>
     </main>
