@@ -1,25 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CurrentWeather = props => {
+const CurrentWeather = ({ weather: {
+  sol,
+  maxTemp,
+  minTemp,
+  avWindSpeed,
+  windDirectionDeg,
+  windDirectionCardinal,
+  date
+} }) => {
+
   return (
     <main className="mars-current-weather" >
       <h1 className="main-title">Latest weather at Elysium Plantitia</h1>
       <div className="date">
-        <h2 className="section-title section-title--date">Sol 377</h2>
-        <p className="date__day">September 18</p>
+        <h2 className="section-title section-title--date">
+          Sol {sol}</h2>
+        <p className="date__day"> {date}</p>
       </div>
       <div className="temperature">
         <h2 className="section-title">Temperature</h2>
-        <p className="reading">High: -20°C</p>
-        <p className="reading">Low: -180°C</p>
+        <p className="reading">High: {maxTemp}°C</p>
+        <p className="reading">Low: -{minTemp}°C</p>
       </div>
       <div className="wind">
         <h2 className="section-title">Wind</h2>
-        <p className="reading">75 kph</p>
+        <p className="reading"> {avWindSpeed} kph</p>
 
         <div className="wind__direction">
-          <p className="sr-only">45 degrees</p>
+          <p className="sr-only">{windDirectionDeg} degrees</p>
           <div className="wind__arrow"></div>
         </div>
       </div>
@@ -41,7 +51,7 @@ const CurrentWeather = props => {
 }
 
 CurrentWeather.propTypes = {
-
+  weatherData: PropTypes.object.isRequired,
 }
 
 export default CurrentWeather
