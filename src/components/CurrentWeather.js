@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const CurrentWeather = ({ weather: {
+const CurrentWeather = ({ weatherData: {
   sol,
   maxTemp,
   minTemp,

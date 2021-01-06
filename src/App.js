@@ -9,7 +9,17 @@ function App() {
 
   const API_URL = `https://api.nasa.gov/insight_weather/?api_key=${NASA_API_KEY}&feedtype=json&ver=1.0`
 
-  const [weatherData, setWeatherData] = useState('state');
+  const [weatherData, setWeatherData] = useState(
+    [{
+      sol: 'No sol set',
+      maxTemp: 'No sol set',
+      minTemp: 'No sol set',
+      avWindSpeed: 'No sol set',
+      windDirectionDeg: 'No sol set',
+      windDirectionCardinal: 'No sol set',
+      date: 'No sol set'
+    }
+    ])
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString(undefined,
@@ -50,8 +60,8 @@ function App() {
 
   return (
     <div className="App">
-      <CurrentWeather weather={weatherData[0]} />
-      <PreviousWeather weather={weatherData} />
+      <CurrentWeather weatherData={weatherData[(weatherData.length - 1)]} />
+      <PreviousWeather weatherData={weatherData} />
     </div>
   );
 }

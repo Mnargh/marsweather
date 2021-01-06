@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import PreviousDay from './PreviousDay'
 
-const PreviousWeather = props => {
+const PreviousWeather = ({ weatherData }) => {
 
   const [showWeather, setShowWeather] = useState('false');
 
@@ -16,16 +16,15 @@ const PreviousWeather = props => {
         <span> &#8593;</span>
         <span className="sr-only">Show previous weather</span>
       </button>
-      <h2 className="main-title previous-weather__title">Previous 7 days</h2>
+      <h2 className="main-title previous-weather__title">
+        Previous 7 days</h2>
 
       <div className="previous-days">
-        <PreviousDay />
-        <PreviousDay />
-        <PreviousDay />
-        <PreviousDay />
-        <PreviousDay />
-        <PreviousDay />
-        <PreviousDay />
+        {
+          weatherData.map(daydata => {
+            return <PreviousDay dailyData={daydata} />
+          })
+        }
       </div>
     </div>
   )
