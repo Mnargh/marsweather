@@ -16,13 +16,13 @@ const PreviousWeather = ({ weatherData }) => {
         <span> &#8593;</span>
         <span className="sr-only">Show previous weather</span>
       </button>
-      <h2 className="main-title previous-weather__title">
+      <h2 className="main-title previous-weather__title">{console.log(weatherData)}
         Previous 7 days</h2>
 
       <div className="previous-days">
         {
-          weatherData.map(daydata => {
-            return <PreviousDay dailyData={daydata} />
+          weatherData.map((daydata, index) => {
+            return <PreviousDay key={index} dailyData={daydata} />
           })
         }
       </div>
@@ -31,7 +31,7 @@ const PreviousWeather = ({ weatherData }) => {
 }
 
 PreviousWeather.propTypes = {
-
+  weatherData: PropTypes.array.isRequired,
 }
 
 export default PreviousWeather
