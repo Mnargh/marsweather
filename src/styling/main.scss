@@ -110,7 +110,7 @@ a {
 }
 
 .wind {
-  grid-column: 3 / 4; //  start line 3 to line 4
+  grid-column: 3/4; //  start line 3 to line 4
   display: grid;
   // grid-auto-flow: dense;
   grid-template-columns: repeat(2, 1fr);
@@ -129,7 +129,7 @@ a {
     background-color: rgba(255,255,255,.5);
     display: grid;
     place-items: center; // centers triangle in the circle
-    grid-row: 1 / span 2; // takes up 1 row and spanning 2 coloumns
+    grid-row: 1 / span 3; // takes up 1 row and spanning 2 coloumns
   }
 
   &__arrow {
