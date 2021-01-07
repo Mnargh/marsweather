@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const CurrentWeather = ({ weatherData: {
@@ -10,6 +10,13 @@ const CurrentWeather = ({ weatherData: {
   windDirectionCardinal,
   date
 } }) => {
+
+
+  const [isCelsius, setIsCelsius] = useState('true');
+
+  function changeTempUnits() {
+    setIsCelsius(!isCelsius)
+  }
 
   return (
     <main className="mars-current-weather" >
@@ -25,7 +32,7 @@ const CurrentWeather = ({ weatherData: {
         <p className="reading">Low: -{minTemp}°C</p>
       </div>
       <div className="wind">
-        <h2 className="section-title">Wind</h2>
+        <h2 className="section-title">{console.log(isCelsius)}Wind</h2>
         <p className="reading"> {avWindSpeed} kph</p>
         <p className="reading"> {windDirectionCardinal}</p>
 
@@ -41,11 +48,13 @@ const CurrentWeather = ({ weatherData: {
         <p>This is only part of insights mission. <a href="https://mars.nasa.gov/insight/mission/overview">Click here</a> to find out more</p>
       </div>
       <div className="unit">
-        <label >°C</label>
-        <input type="radio" id="cel" name="unit" checked />
-        <button className="unit__toggle" />
-        <label >°F</label>
-        <input type="radio" id="fah" name="unit" />
+        <label for="cel" >°C</label>
+        <button className="unit__toggle" onClick={() => {
+          changeTempUnits()
+        }} >
+          <div className={`temp-btn-slider${isCelsius ? '-celsius' : '-fahrenheit'}`} />
+        </button>
+        <label for="fah">°F</label>
       </div>
     </main >
   )

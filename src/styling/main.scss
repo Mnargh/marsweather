@@ -165,16 +165,6 @@ a {
     cursor: pointer;
   }
 
-  input {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-
   &__toggle {
     cursor: pointer;
     width: 4em;
@@ -185,7 +175,7 @@ a {
     margin: 0 0.5em;
 
 
-    &::after {
+    .temp-btn-slider-fahrenheit {
       content: '';
       background: var(--clr-light);
       border-radius: 50%;
@@ -194,12 +184,18 @@ a {
       margin: 3px;
       margin-left: auto;
       width: 1rem;
-
     }
-  }
 
-  :checked ~ .unit__toggle::after {
+    .temp-btn-slider-celsius {
+      content: '';
+      background: var(--clr-light);
+      border-radius: 50%;
+      height: 1rem;
+      display: block;
+      margin: 3px;
       margin-left: 3px;
+      width: 1rem;
+    }
   }
 }
 
