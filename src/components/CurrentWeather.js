@@ -27,10 +27,11 @@ const CurrentWeather = ({ weatherData: {
       <div className="wind">
         <h2 className="section-title">Wind</h2>
         <p className="reading"> {avWindSpeed} kph</p>
+        <p className="reading"> {windDirectionCardinal}</p>
 
         <div className="wind__direction">
           <p className="sr-only">{windDirectionDeg} degrees</p>
-          <div className="wind__arrow"></div>
+          <div className="wind__arrow" style={{ "--direction": `${windDirectionDeg}deg` }}></div>
         </div>
       </div>
       <div className="info">
@@ -46,7 +47,7 @@ const CurrentWeather = ({ weatherData: {
         <label >°F</label>
         <input type="radio" id="fah" name="unit" />
       </div>
-    </main>
+    </main >
   )
 }
 

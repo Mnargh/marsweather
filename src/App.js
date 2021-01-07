@@ -11,13 +11,13 @@ function App() {
 
   const [weatherData, setWeatherData] = useState(
     [{
-      sol: 'No sol set',
-      maxTemp: 'No sol set',
-      minTemp: 'No sol set',
-      avWindSpeed: 'No sol set',
-      windDirectionDeg: 'No sol set',
-      windDirectionCardinal: 'No sol set',
-      date: 'No sol set'
+      sol: '',
+      maxTemp: '',
+      minTemp: '',
+      avWindSpeed: '',
+      windDirectionDeg: '',
+      windDirectionCardinal: '',
+      date: ''
     }
     ])
 
@@ -48,7 +48,7 @@ function App() {
               ...(data.AT ? { minTemp: data.AT.mn } : { minTemp: 20 }),
               ...(data.HWS ? { avWindSpeed: data.HWS.av } : { avWindSpeed: 30 }),
               ...(data.WD.most_common ? { windDirectionDeg: data.WD.most_common.compass_degrees } : { windDirectionDeg: 40 }),
-              ...(data.WD.most_common ? { windDirectionCardinal: data.WD.most_common.compass_point } : { windDirectionCardinal: 50 }),
+              ...(data.WD.most_common ? { windDirectionCardinal: data.WD.most_common.compass_point } : { windDirectionCardinal: 'SE' }),
               ...(data.First_UTC ? { date: formatDate(data.First_UTC) } : { date: 60 }),
             }
             return pickedData;
