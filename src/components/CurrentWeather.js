@@ -12,10 +12,20 @@ const CurrentWeather = ({ weatherData: {
 } }) => {
 
 
-  const [isCelsius, setIsCelsius] = useState('true');
+  const [isMetric, setIsMetric] = useState('true');
 
-  function changeTempUnits() {
-    setIsCelsius(!isCelsius)
+
+  const formatUnits = () => {
+    setIsMetric(!isMetric)
+  }
+
+  const formatTemp = (temperature) => {
+    return isMetric ? Math.round(temperature) : Math.round((temperature * (9 / 5)) + 32) // to fahrenheit
+  }
+
+  const formatWind = (windSpeed) => {
+    // convert m/s to kmh and mph
+    return isMetric ? Math.round(windSpeed * 2.236) : Math.round(windSpeed * 3.6)
   }
 
   return (
@@ -28,12 +38,12 @@ const CurrentWeather = ({ weatherData: {
       </div>
       <div className="temperature">
         <h2 className="section-title">Temperature</h2>
-        <p className="reading">High: {maxTemp}°C</p>
-        <p className="reading">Low: -{minTemp}°C</p>
+        <p className="reading">High: {formatTemp(maxTemp)}°{isMetric ? 'C' : 'F'}</p>
+        <p className="reading">Low: {formatTemp(minTemp)}°{isMetric ? 'C' : 'F'}</p>
       </div>
       <div className="wind">
-        <h2 className="section-title">{console.log(isCelsius)}Wind</h2>
-        <p className="reading"> {avWindSpeed} kph</p>
+        <h2 className="section-title">Wind</h2>
+        <p className="reading"> {formatWind(avWindSpeed)} {isMetric ? 'kmh' : 'mph'}</p>
         <p className="reading"> {windDirectionCardinal}</p>
 
         <div className="wind__direction">
@@ -48,13 +58,13 @@ const CurrentWeather = ({ weatherData: {
         <p>This is only part of insights mission. <a href="https://mars.nasa.gov/insight/mission/overview">Click here</a> to find out more</p>
       </div>
       <div className="unit">
-        <label for="cel" >°C</label>
+        <label >°C</label>
         <button className="unit__toggle" onClick={() => {
-          changeTempUnits()
+          formatUnits()
         }} >
-          <div className={`temp-btn-slider${isCelsius ? '-celsius' : '-fahrenheit'}`} />
+          <div className={`temp-btn-slider${isMetric ? '-celsius' : '-fahrenheit'}`} />
         </button>
-        <label for="fah">°F</label>
+        <label>°F</label>
       </div>
     </main >
   )

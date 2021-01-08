@@ -16,7 +16,7 @@ const PreviousWeather = ({ weatherData }) => {
         <span> &#8593;</span>
         <span className="sr-only">Show previous weather</span>
       </button>
-      <h2 className="main-title previous-weather__title">{console.log(weatherData)}
+      <h2 className="main-title previous-weather__title">
         Previous 7 days</h2>
 
       <div className="previous-days">

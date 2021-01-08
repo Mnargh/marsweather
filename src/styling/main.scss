@@ -273,7 +273,18 @@ a {
 
     &:hover {
       background: var(--clr-gray);
+    }
 
+    a {
+      cursor: pointer;
+    border: 0;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+    text-transform: uppercase;
+
+    &:hover {
+      background: var(--clr-gray);
+    }
     }
   }
 }

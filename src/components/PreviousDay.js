@@ -10,13 +10,14 @@ const PreviousDay = ({ dailyData: {
   windDirectionCardinal,
   date
 } }) => {
+
   return (
     <div className="previous-day">
       <h3 className="previous-day__sol">Sol {sol}</h3>
       <p className="previous-day__date">{date}</p>
       <p className="previous-day__temp">High: {maxTemp}°C</p>
       <p className="previous-day__temp">Low: {minTemp}°C</p>
-      <button className="previous-day__more-info">more info</button>
+      <button className="previous-day__more-info" onClick={() => { window.open('https://mars.nasa.gov/insight/weather/') }}>more info</button>
     </div>
   )
 }
