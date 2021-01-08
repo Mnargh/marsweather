@@ -44,8 +44,8 @@ function App() {
 
             const pickedData = {
               ...(sol ? { sol: sol } : { sol: 5 }),
-              ...(data.AT ? { maxTemp: data.AT.mx } : { maxTemp: 10 }),
-              ...(data.AT ? { minTemp: data.AT.mn } : { minTemp: 20 }),
+              ...(data.AT ? { maxTemp: data.AT.mx } : { maxTemp: 50 }),
+              ...(data.AT ? { minTemp: data.AT.mn } : { minTemp: 5 }),
               ...(data.HWS ? { avWindSpeed: data.HWS.av } : { avWindSpeed: 30 }),
               ...(data.WD.most_common ? { windDirectionDeg: data.WD.most_common.compass_degrees } : { windDirectionDeg: 40 }),
               ...(data.WD.most_common ? { windDirectionCardinal: data.WD.most_common.compass_point } : { windDirectionCardinal: 'SE' }),

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const CurrentWeather = ({ weatherData: {
@@ -11,6 +11,23 @@ const CurrentWeather = ({ weatherData: {
   date
 } }) => {
 
+
+  const [isMetric, setIsMetric] = useState('true');
+
+
+  const formatUnits = () => {
+    setIsMetric(!isMetric)
+  }
+
+  const formatTemp = (temperature) => {
+    return isMetric ? Math.round(temperature) : Math.round((temperature * (9 / 5)) + 32) // to fahrenheit
+  }
+
+  const formatWind = (windSpeed) => {
+    // convert m/s to kmh and mph
+    return isMetric ? Math.round(windSpeed * 2.236) : Math.round(windSpeed * 3.6)
+  }
+
   return (
     <main className="mars-current-weather" >
       <h1 className="main-title">Latest weather at Elysium Plantitia</h1>
@@ -21,12 +38,12 @@ const CurrentWeather = ({ weatherData: {
       </div>
       <div className="temperature">
         <h2 className="section-title">Temperature</h2>
-        <p className="reading">High: {maxTemp}°C</p>
-        <p className="reading">Low: -{minTemp}°C</p>
+        <p className="reading">High: {formatTemp(maxTemp)}°{isMetric ? 'C' : 'F'}</p>
+        <p className="reading">Low: {formatTemp(minTemp)}°{isMetric ? 'C' : 'F'}</p>
       </div>
       <div className="wind">
         <h2 className="section-title">Wind</h2>
-        <p className="reading"> {avWindSpeed} kph</p>
+        <p className="reading"> {formatWind(avWindSpeed)} {isMetric ? 'kmh' : 'mph'}</p>
         <p className="reading"> {windDirectionCardinal}</p>
 
         <div className="wind__direction">
@@ -42,10 +59,12 @@ const CurrentWeather = ({ weatherData: {
       </div>
       <div className="unit">
         <label >°C</label>
-        <input type="radio" id="cel" name="unit" checked />
-        <button className="unit__toggle" />
-        <label >°F</label>
-        <input type="radio" id="fah" name="unit" />
+        <button className="unit__toggle" onClick={() => {
+          formatUnits()
+        }} >
+          <div className={`temp-btn-slider${isMetric ? '-celsius' : '-fahrenheit'}`} />
+        </button>
+        <label>°F</label>
       </div>
     </main >
   )
