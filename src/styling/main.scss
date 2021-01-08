@@ -60,7 +60,7 @@ a {
   text-transform: uppercase;
   color: var(--clr-accent);
   letter-spacing: 2px;
-
+  text-shadow: 1px 1px 2px (var(--clr-accent));
   grid-column: 1 / -1; // extends title from one side of grid to the other
 }
 
@@ -68,10 +68,12 @@ a {
   font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
   margin: 0;
+  text-shadow: 0.5px 1px 1px (var(--clr-light));
 }
 
 .section-title--date {
   font-size: var(--fs-x1);
+  text-shadow: 2px 1px 2px (var(--clr-light));
 }
 
 .reading {
@@ -88,6 +90,9 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr); // sets grid template for weather div
   grid-gap: 2em; // adds spacing around gridlines,s
+  box-shadow: 0px 0px 10px rgba(0,0,0,.5), -0px -0px 10px rgba(0,0,0,.5);
+  border-radius: 20px
+  // box-shadow: 25px 25px 50px 0 white inset, -25px -25px 50px 0 white inset; 
 }
 
 .date {
@@ -126,6 +131,7 @@ a {
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
+    box-shadow: 0px 0px 5px rgba(255,255,255,.5), -0px -0px 5px rgba(255,255,255,.5);
     background-color: rgba(255,255,255,.5);
     display: grid;
     place-items: center; // centers triangle in the circle
@@ -136,6 +142,7 @@ a {
     // update custom props in JS to update the arrow direction
     --direction: 0deg;
     --size: 1rem;
+    border-radius: 0.25rem 0.25rem 0.5rem 0.5rem;
     height: calc(var(--size) * 3);
     width: var(--size);
     background: var(--clr-accent-dark);
@@ -208,6 +215,7 @@ a {
   transform: translateY(70%);
   transition: transform 350ms ease;
   padding: 3rem;
+  box-shadow: -0px -15px 50px rgba(255,255,255,.5);
 }
 
 .show-previous-weather {
@@ -219,11 +227,12 @@ a {
   text-align: center;
   font-size: var(--fs-h1);
   line-height: 1;
-  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  clip-path: (polygon(50% 0, 0 100%, 100% 100%));
   cursor: pointer;
   color: var(--clr-gray);
   border: 0;
   font-family: inherit;
+  
 
   &:hover,
   &:focus {
@@ -249,6 +258,7 @@ a {
 .previous-weather__title {
   text-align: center;
   margin-top: -1rem;
+  text: var(--fs-body);
 }
 
 .previous-day {
