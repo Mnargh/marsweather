@@ -44,10 +44,10 @@ const CurrentWeather = ({ weatherData: {
       <div className="wind">
         <h2 className="section-title">Wind</h2>
         <p className="reading"> {formatWind(avWindSpeed)} {isMetric ? 'kmh' : 'mph'}</p>
-        <p className="reading"> {windDirectionCardinal}</p>
+        <p className="reading"> {windDirectionDeg}° {windDirectionCardinal}</p>
 
         <div className="wind__direction">
-          <p className="sr-only">{windDirectionDeg} degrees</p>
+          <p className="sr-only"></p>
           <div className="wind__arrow" style={{ "--direction": `${windDirectionDeg}deg` }}></div>
         </div>
       </div>
