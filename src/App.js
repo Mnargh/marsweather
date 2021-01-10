@@ -54,6 +54,7 @@ function App() {
             return pickedData;
           }
         )
+        console.log(NASA_API_KEY)
         setWeatherData(temp);
       })
   }, [API_URL])
