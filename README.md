@@ -1,81 +1,50 @@
-#
 
-Nasa API link https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0
-
+[Abstract](#MarsWeather) | [Concepts](#objective) | [How To Run](#How-To-Run) | [Screenshot](#screenshot) | [Improvements](#improvements)
 
 
+# MarsWeather
+
+A simple single page app that displays the current, and previous 7 days weather on Mars, as recorded by NASA's [Insight Mars Lander](https://mars.nasa.gov/insight), which has been recording data for almost two years in the Plantitia Elysium plain on the planet.
+
+The data is available through NASA's [Insight API documentation](https://api.nasa.gov/assets/insight/InSight%20Weather%20API%20Documentation.pdf) and gives a number of data points from the surface such as min/max temps, wind speed and direction, atmospheric pressure. There are sometimes gaps in the days data is provided for by the API dude to weather events or other reasons, so in place I have entered dummy data.
+
+The app is currently temporarily hosted at [https://aqueous-plains-40882.herokuapp.com](https://aqueous-plains-40882.herokuapp.com) (may take a few seconds to load)
+
+## Concepts
+
+I created this app as a way to practice creating simple React apps. The concepts that I wanted to cover were
+
+* [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+  - UseState
+  - UseEffect
+* [Functional components](https://reactjs.org/docs/components-and-props.html)
+* Passing data between components using props
+* Fetching and manipulating data from external APIs
+* Using event listeners to dynamically change the page
+* CSS styling and animations 
+
+## How To Run
+
+Clone the repo and go to the directory \
+`git@github.com:Mnargh/marsweather.git && cd marsweather`
 
 
+Install dependencies \
+`npm i`
+
+Run the App on localhost:3000 \
+`npm run start`
 
 
+## Screenshot
+![Dashboard](./public/Screenshot.png)
 
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Improvements
 
-## Available Scripts
+1. Use Redux to store api data and other variables in the state globally as passing these between components limits the complexity and maintainability of the application.
 
-In the project directory, you can run:
+2. Add the ability to select and display info for other days in the main weather display
 
-### `npm start`
+3. Make the page responsive for different screen sizes, devices
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
